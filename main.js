@@ -2,13 +2,14 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
+const filterOption = document.querySelector('.filter-todo');
 
 
 
 // event listeners
 todoButton.addEventListener('click', addTodo)
 todoList.addEventListener('click', deleteCheck);
-
+filterOption.addEventListener('click', filterTodo);
 
 // function
 
@@ -51,17 +52,50 @@ function deleteCheck(e) {
   const item = e.target;
 
   //delete the todo
-  if(item.classList[0] === 'delete-button'){
-    const todo =  item.parentElement;
+  if (item.classList[0] === 'delete-button') {
+    const todo = item.parentElement;
     //Animation
     todo.classList.add('fall')
-    todo.addEventListener('transitionend', function(){
+    todo.addEventListener('transitionend', function () {
       todo.remove();
     })
   }
   //Check Mark
-  if(item.classList[0] === 'check-button'){
+  if (item.classList[0] === 'check-button') {
     const todo = item.parentElement;
     todo.classList.toggle('completed')
   }
 }
+
+
+//filter fucntions
+
+function filterTodo(e) {
+  const todos = todoList.childNodes;
+  todos.forEach(function (todo) {
+    switch (e.target.value) {
+      case 'all':
+        $(todo).css("display", "flex");
+        break;
+      case 'completed':
+        if ($(todo).hasClass('completed')) {
+          $(todo).css("display", "flex");
+          break;
+        } else {
+          $(todo).css("display", "none");
+        }
+        break;
+      case 'uncompleted':
+        if ($(todo).hasClass('completed')) {
+          $(todo).css("display", "none");
+          break;
+        } else {
+          console.log('raxdeba')
+          $(todo).css("display", "flex");
+        }
+    }
+  })
+}
+
+
+// $(todo).css("background", "yellow"); 

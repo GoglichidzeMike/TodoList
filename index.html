@@ -8,6 +8,7 @@
   <script defer type="text/javascript" src="./main.js"></script>
   <script src="https://kit.fontawesome.com/294420c0d5.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> 
+  <script src="/jquery-3.5.1.min.js"></script>
   <title>ToDo App</title>
 </head>
 
@@ -21,11 +22,12 @@
     <button class="todo-button" type="submit">
       <i class="fas fa-plus-square"></i>
     </button>
-    <div class="custom-select">
-    <select>
+    
+    <div class="select">
+    <select name="todos" class="filter-todo">
       <option value="all">All</option>
       <option value="completed">Completed</option>
-      <option value="deleted">Uncompleted</option>
+      <option value="uncompleted">Uncompleted</option>
     </select>
   </div>
   </form>
