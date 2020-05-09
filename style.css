@@ -8,7 +8,7 @@ reset default values
 }
 
 body{
-  background-image: linear-gradient(1200deg, #0191C8, #74C2E1);  /* setting up gradient background */
+  background-image: linear-gradient(120deg, #0191C8, #74C2E1);  /* setting up gradient background */
   color: white; /* default text color on page */
   font-family: 'Poppins', sans-serif; /* default font on page*/
   min-height: 100vh;  /* strech body to full page - to stretch gradient on whole page*/
@@ -50,6 +50,30 @@ form button:hover{
   color: white;
 }
 
+
+/* selector sryling */
+
+/* form styling ends here */
+.custom-select{
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.custom-select select{
+  color: #0191C8;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.custom-select::after{
+
+}
+
+
+
+/* todos styling start here*/
+
 .todo-list{
   min-width: 40%;
   list-style: none; /* removing list dots */
@@ -70,6 +94,7 @@ form button:hover{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.5s ease;
 }
 
 .todo-item{
@@ -87,7 +112,7 @@ form button:hover{
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease;
 }
 
 .check-button{
@@ -97,14 +122,34 @@ form button:hover{
 
 .check-button:hover{
   transform: scale(0.90); /* creates push animation when hovered*/
-  transition: transform 0.2s;
+  transition: transform 0.05s;
   color:green;
   background: greenyellow;
 }
 
 .delete-button:hover{
   transform: scale(0.90);
-  transition: transform 0.2s;
+  transition: transform 0.05s;
   color:white;
   background:#B22222;
+}
+
+/* completed and deleted classes*/
+
+.completed{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.remove{
+  transform: translateY(8rem) rotateZ(20deg);
+}
+
+.fall{
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+.fa-trash, .fa-check-square{
+  pointer-events: none;
 }
